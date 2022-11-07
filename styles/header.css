@@ -1,0 +1,169 @@
+.cabecalho__menu-hamburguer{
+    width: 24px;
+    height: 24px;
+    background-image: url("../img/Menu.svg");
+    background-repeat: no-repeat;/*ao colocar o padding, estava repetindo o menu*/
+    background-position: center; /*agora o menu ficou no centro da linha, estava no topo*/
+    display: inline-block;
+}
+
+container__botao:checked~ .container__rotulo > .cabecalho__menu-hamburguer{
+    background-image: url("../img/menuClicado.png");
+}
+
+.container__botao:checked~.container__rotulo{
+    background: var(--azul-degrade);
+}
+
+.cabecalho{
+    background-color: var(--branco);
+    display: flex;
+    justify-content: space-between; /*aqui ele espaçou as duas divs, jogando o menu e logo pra esquerda e restante p direita*/
+    align-items: center;
+    position: relative; 
+}
+
+.container{
+    display: flex;
+    align-items: center;
+}
+
+.container__imagem{
+    padding: 1em; /*espaçar os itens*/
+}
+
+.lista-menu{
+    display: none;
+    position: absolute;
+    top: 100%;
+    width: 60vw; /*coloquei vw pq ele vai pegar a largura da tela e ajustar na medida q coloquei*/
+}
+
+.container__botao:checked~.lista-menu{ 
+    display: block;
+}
+
+.lista-menu__titulo,
+.lista-menu__item{
+    padding: 1em;
+    background-color: var(--branco);
+}
+
+.lista-menu__titulo{
+    color: var(--laranja);
+    font-weight: 700;
+}
+
+.lista-menu__link{
+    background: var(--azul-degrade);
+    -webkit-background-clip: text; /*aplica so onde tem texto e o restante pra adeuar ao navegador*/
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-transform: uppercase; /*deixou todas as letras maiusculas*/
+}
+
+.container__botao{
+    display: none; /*some o checkbox na pagina*/
+}
+
+.container__titulo{
+    display: none; /*para nao aparecer o texto da logo na versao mobile*/
+}
+
+.opcoes{
+    display: none; /*para nao aparecer a parte de menu caso a tela seja menor q 1024*/
+}
+
+.container__texto{
+    display: none;
+}
+
+@media screen and (min-width: 1024px){
+    
+    .container__titulo, 
+    .container__titulo--negrito{
+        font-family: var(--fonte-secundaria);
+        font-size: 30px;
+    }
+
+    .container__titulo{
+        font-weight: 400;
+        display: block;
+    }
+
+    .container__titulo--negrito{
+        font-weight: 700;
+    }
+
+    .opcoes{
+        display: flex;
+    }
+
+    .opcoes__item{
+        padding: 0 1em; /*espaçamento so nas laterais*/
+        text-transform: uppercase;
+    }
+
+    .opcoes__link{
+        text-decoration: none;
+        color: var(--preto);
+    }
+
+    .container__imagem-transparente{
+        display: none;
+    }
+
+    .cabecalho__menu-hamburguer{
+        display: none;
+    }
+    
+    .opcoes__botao:checked ~ .lista-menu{
+        display: block;
+        width: auto;
+    }
+
+    .opcoes__botao{
+        display: none;
+    }
+
+    .opcoes__botao:checked~.opcoes__rotulo> .opcoes__item{
+        background: var(--azul-degrade);
+        color: var(--branco);
+    }
+
+    .opcoes__item {
+        padding: 1em 2em;
+    }
+
+    .lista-menu__item:hover{
+        background: var(--azul-degrade);
+    }
+
+    .lista-menu__item:hover > .lista-menu__link{
+        -webkit-text-fill-color: var(--branco);
+        text-decoration: none;
+    }
+}
+
+@media screen and (min-width: 1728px){
+    
+    .container__link{
+        display: flex; /*deixou ao lado das img o textinho*/
+        align-items: center;
+        text-decoration: none;
+        color: var(--preto);
+    }
+
+    .cabecalho{
+        padding: 0 2em;
+    }
+
+    .opcoes{
+        margin-right: auto; /*enviou os itens do cabecalho para direita*/
+    }
+
+    .container__texto{
+        display: block;
+    }
+
+}

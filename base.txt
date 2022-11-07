@@ -1,0 +1,139 @@
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+O metadado charset se refere a codificação de caracteres;
+
+O metadado charset é onde indicamos uma codificação de caracteres. O UTF-8 é o que usamos na web atual e faz parte de um padrão chamado Unicode. 
+A ideia é que com ele possamos representar qualquer caractere de qualquer idioma.
+O metadado viewport detecta o tamanho do dispositivo que está acessando a aplicação.
+O metadado com nome viewport recebe os dados como a largura da tela e a escala inicial (que se refere ao zoom).
+
+Eu quero que você abra o Visual Studio Code comigo. Entre a div class conteiner abertura e o span do menu hambúrguer, eu vou botar um
+<input type=”checkbox” id=”menu” class=”container__botao”>, embaixo eu vou criar uma <label for=”menu”>, e essa label vai fechar depois do span </label>.
+
+Então vamos salvar e olhar aqui o que aconteceu, agora quando eu clico no ícone do menu hambúrguer, ele preenche o quadrado do checkbox.
+Então vamos entender melhor o que aconteceu aqui, o que eu fiz.
+Primeiro, eu botei o input type checkbox, que é aquele input que detecta quando você clica e fica preenchido, então já é algo que guarda aquela sua ação de clique.
+E depois eu botei um label for menu, label ele funciona para associar todos os elementos que estão dentro dele com outro, através do id,
+então ele está associando o span que está dentro dele com outro elemento que tem o id menu, que no caso é o input.
+Mas agora não basta detectar o clique, queremos que apareça uma lista quando acontecer esse clique,
+então vamos primeiro criar essa lista. Então, depois do label, você vai criar um elemento <ul class=”lista-menu”>, 
+então, dentro dele vai ter vários li e o primeiro eu vou botar como <li class=”lista-menu__titulo”>Categorias</li>. 
+E depois eu vou criar um <li class=”lista-menu__item”></li> e dentro uma âncora <a href=”#” class=”lista-menu__link”>, 
+vou fechar aqui a âncora </a>, e a primeira é Programação, eu vou quebrar aqui a linha para ficar mais fácil de visualizar. 
+Ficou uma linha um li, uma outra linha um a, a outra linha é o fechamento do li.
+
+linha 30 css
+Então, o que aconteceu aqui? Isso é bem bacana de entender. Então eu botei um .container, no botão, selecionou o input, eu botei :checked, esse checked é uma pseudo classe. 
+Então, o que ele faz? Ele detecta se está preenchida aquele input checkbox.
+
+E depois eu botei um acento til, aquilo é chamado combinador CSS. Um combinador CSS desse aqui, do acento til, ele vai procurar um outro elemento que vem em seguida daquele de antes
+, que tem aquela classe que eu botei depois.
+Então, o que ele está fazendo aqui? Esse caso é o mais perto que chegamos de uma condicional com CSS, então podemos já imaginar como se estivesse com JavaScript ali, 
+então ele funciona, se o container botão tiver o checked, ele vai procurar outro que venha depois dele, que tenha a classe lista menu e vai botar display block nele. 
+Se não tivesse com lista menu não ia fazer nada, e também se não tivesse no checked não ia fazer nada.
+Então é bem bacana que é uma maneira de chegarmos mais próximo de uma condicional e fazer acontecer tal coisa se fizermos tal coisa, mas quando clicamos aqui,
+estou no navegador olhando, ele bota a lista do lado do menu hambúrguer, e não é isso que eu quero, eu quero que ele fique embaixo do menu hambúrguer e não do lado,para isso vamos lidar com positions.
+
+Então volto no “header.css”, e onde está o .cabeçalho { nós vamos colocar o position: relative; e no .lista-menu, lá na linha 29 vamos botar um position: absolute;
+, salvei, vamos olhar agora, agora ele está em cima do menu hambúrguer, já consegui fazer ele ficar fora do lugar que ele estava do lado.
+O que aconteceu aqui? Vou explicar, primeiro uma explicação abrangente desses positions para você entender bem e usar em outros projetos. 
+O position relative, ele libera a opção de você botar outros atributos como top, left, right, bottom que em português é topo, lado direito, lado esquerdo, e embaixo.
+E o position absolute, ele permite que você movimente o seu elemento de acordo com outro que veio antes, ou que é o pai, que esteja a position diferente de static que é a padrão. 
+Eu queria que ele se movimentasse de acordo com cabeçalho. Então para eu mesma movimentar para ele ficar embaixo do cabeçalho.
+Então eu botei um position relative no cabeçalho, para ele ficar diferente de static, não vou usar nenhuma dessas propriedades que liberou para ele,
+mas eu quero que ele fique diferente de static para o absolute funcionar.
+
+Então eu podendo me movimentar de acordo com o cabeçalho, agora ele já está em cima dele, porque eu não determinei nada.
+Mas agora vamos botar embaixo, olha aqui, eu vou botar um top: 100%;, salvei, vamos olhar aqui. Agora ele ficou ali embaixo, ou seja, ele tirou 100% do cabeçalho e ficou para baixo.
+Então só botamos aquele relative no cabeçalho para liberar esse absolute e conseguir movimentar 100%, totalmente para baixo do cabeçalho, essa lista do menu.
+
+Ao construir o header da aplicação, o transformamos em um flex-container através da propriedade display: flex. Consequentemente, seus filhos (os elementos que estavam dentro dele) 
+viraram flex-itens e por padrão eles ficaram alinhados em linha, ou seja, um ao lado do outro.
+
+Quadrados que representam elementos de bloco alinhados em linha, um ao lado do outro
+
+Mas além desse comportamento, ele desbloqueia algumas novas propriedades CSS que facilitam na construção de alinhamento e espaçamento de elementos. Quais são essas propriedades?
+Align-items e justify-content.
+
+
+Alternativa correta! A propriedade align-items especifica o alinhamento dos itens dentro de um flex-container,
+ e o justify-content define como o navegador irá distribuir o espaço entre os flex-itens.
+
+
+Então falta uma coisa só que é o espaçamento, vamos fazer o padding: 1em 0 0.5em 0;, salvei, vamos olhar, agora já está com aquele espaçamento maior em cima e o menor embaixo,
+o que eu fiz aqui? Eu botei o padding que ele faz aquele espaçamento interno, então ele fez um espaçamento do texto até a borda do próprio elemento, e eu botei 4 valores,
+como o valor dele. Então, para você entender essa atribuição de 4 valores você pode comparar com o relógio.
+
+O primeiro com 1em, seria o meio-dia e é o topo do relógio. Já o segundo zero ali, ele seria a direita às 3 horas, o 0.5em seria 6 horas,
+então seria o lado debaixo e o último zero seria as 9, que seria a esquerda, então se você fizer essa associação na sua mente,
+eu acho que é mais fácil de entender quando colocamos esses 4 valores em margins ou paddings.
+----------------------
+terminado o site na versao mobile, agora faremos a versao paara tablet
+
+Mas como é que botamos no nosso código para fazer esse layout maior? Então eu quero que você abra o Visual Studio Code e vamos no “header.css” e lá embaixo vamos botar
+ @media screen and (min-width: 1024px){}. O que é essa estrutura que eu botei aqui? Isso se chama media query, que usamos para aplicar estilos quando chega em tal determinado tamanho de tela.
+E como é que a estrutura dele? É o @media, isso aqui é obrigatório botar, que é para dizer que é um media query. 
+Esse screen tem como fazer sem colocar ele, mas ele é um media type e eu quero dizer que ele é a tela, eu vou até deixar um artigo no Para Saber Mais,
+ para você ver que tem outros tipos de media types e entender melhor porque eu botei esse screen.
+Eu disse que botando esse and que a tradução seria “e”, que é o mínimo da largura da tela seja 1024px, que é o tamanho que o designer botou ali 1024. Geralmente, quando fazemos layouts com o mobile first, 
+nós botamos o min-width que aí chega quando o mínimo do tamanho da tela for 1024px, ele vai fazer aqueles estilos de dentro, caso você faça desktop first, 
+que é você começa no tamanho do computador e depois vai diminuindo. Você usa o max-width, ou seja, o max-width ele pega quando o tamanho da tela for o máximo daquele tamanho, 
+e vai aplicar aqueles estilos e aqui queremos com no mínimo 1024. Mas assim é uma questão de convenção que botamos max quando é desktop, e min quando é mobile.
+
+ E nesse vídeo você aprendeu como analisar o Figma, como detectar o que você vai ter que construir, fazer essa linha de raciocínio e também aprendeu sobre as media queries que você vai usar
+  tanto para a definição do tablet quanto do desktop. E sempre que você fizer questão de responsivo, você pode usar os media queries que vai te ajudar muito nisso.
+
+As media queries definem condições para que o CSS seja utilizado em cenários específicos. Se essas condições forem aprovadas, ou seja, se o dispositivo se adequar a todas as condições estabelecidas, 
+o CSS será aplicado. Seguindo esse conceito, você consegue transformar seus projetos em layouts responsivos com o auxílio de media queries. Sua estrutura básica consiste em:
+
+@media (min-width ou max-width = tamanho da tela) { }COPIAR CÓDIGO
+Uma decisão que precisa ser tomada é de se usar max-width ou min-width. O max é ideal para quando temos um layout Desktop pronto e queremos adaptá-lo para dispositivos menores -
+ vamos então definindo novas regras que se aplicam só aos dispositivos de no máximo certo tamanho. Já o min pode ser útil quando criamos um site só mobile ou começamos pelo mobile -
+  nesse caso, é mais fácil ter um layout base e ir customizando para dispositivos maiores, com no mínimo certo tamanho.
+
+Você também pode criar uma media querie mais complexa utilizando operadores lógicos para incluir outros argumentos na condição estabelecida. 
+Os operadores que podem ser usados são: not, and, e only mas neste curso vamos usar apenas o and. A sua tradução para português significa ”e”, tendo a função de ligar dois termos independentes ou mais. 
+Com isso, fomos aumentando a estrutura da media querie e colocando outro argumento: o screen.
+
+@media screen and (min-width ou max-width = tamanho da tela) { }COPIAR CÓDIGO
+O screen é um media type, ou seja, um tipo de mídia. É outro tipo de característica comumente usada na declaração de media queries. Se você não especificar nenhum valor,
+ ele irá utilizar o seu padrão que é “all” (para todos os tipos de mídia).
+
+Caso queira se aprofundar ainda mais nesse assunto, você pode dar uma olhadinha no artigo “Flexibilidade em páginas para dispositivos móveis com media queries”.
+
+
+já na parte da versao desktop, no cabecalho
+Então agora estamos com afastamento bacana, botamos um afastamento na esquerda e na direita. Não botamos no topo e nem baixo, porque não precisava.
+ E agora, a única coisa que tem de diferente nesse header é que esse grupo de links do categorias, favoritos, minha estante, eles tem que ficar na esquerda do site e eles estão no meio. Então, vou te ensinar como fazer isso.
+
+[06:03] Eu preciso que você pegue a classe desses ícones para a classe que abrange, deixa eu olhar aqui, é ul opções. Então eu vou pegar pela classe .opções{}, no “header.css”, dentro daquele media query de 1728px, seleciona, 
+
+.opções{margin-right:auto;}, vou salvar e olha só o que vai acontecer. Ele enviou tudo lá para esquerda.
+
+[06:31] Quando usamos o transform flex container, quando colocamos lá dentro uma margem de left, right, bottom se botarmos o valor auto, ele vai tentar preencher todo o espaço que está sobrando. 
+Então aqui no caso foi, ele preencheu toda a direita com a margem, então todos os itens foram empurrados para a esquerda e isso você pode aplicar em outros projetos, em outros casos que pode acontecer.
+ Por isso que eu já estou exemplificando de um modo geral o que aconteceu nesse caso.
+
+
+sobre pseudo elementos 
+Para construir as interações do menu, nossos ajudantes foram os combinadores, que auxiliam alcançar os elementos necessários dentro do conjunto de elementos do código.
+ Vamos reforçar nosso conhecimento sobre eles?
+
+Combinador	Descrição	Exemplo de uso
++	Seleciona elementos que estão logo após o elemento especificado antes do símbolo.	.container__botao + container__rotulo
+~	Seleciona elementos que estão após (mas não necessariamente em seguida) o elemento especificado antes do símbolo.	.container__botao ~ .container__rotulo
+>	Seleciona elementos que estão dentro do elemento especificado antes do símbolo.	.container__rotulo>.cabeçalho__menu-hamburguer
+
+
+
+
+
+
+
+
+
+
+
+
+
